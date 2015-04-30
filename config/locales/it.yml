@@ -1,0 +1,6 @@
+it:
+  spree:
+    google_taxon_map: Mapping Taxon Google
+    priority: Priorità
+    google_taxon: Taxon Google
+
