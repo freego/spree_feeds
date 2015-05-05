@@ -10,6 +10,7 @@
 module Spree
   module Feeds
     class Trovaprezzi < Spree::Feeds::Base
+      include Spree::Core::Engine.routes.url_helpers
 
       def perform
         file_path = "#{@base_path}/trovaprezzi.xml"
@@ -23,11 +24,11 @@ module Spree
             variants.each do |variant|
               xml.Offer do
                 xml.Name product.name
-                xml.Brand product.brand_name if product.brand_name.present?
+                xml.Brand product.brand_name if product.respond_to? :brand_name
                 xml.tag!("Description") { xml.cdata!(product.description) }
                 xml.Price variant.price
                 xml.Code variant.sku
-                xml.Link product_url(product)
+                xml.Link product_url(product, host: @root_url)
                 xml.Stock variant.total_on_hand
                 categories = []
                 product.taxons.each do |t|
@@ -37,7 +38,7 @@ module Spree
                 variant.images.each_with_index do |img, i|
                   xml.tag!(
                     "Image" + ( i != 0 ? (i + 1).to_s : '' ),
-                    URI.join(request.url, img.attachment.url(:original))
+                    URI.join(@root_url, img.attachment.url(:original))
                   )
                 end
               end
