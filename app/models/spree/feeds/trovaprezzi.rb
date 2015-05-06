@@ -10,36 +10,35 @@
 module Spree
   module Feeds
     class Trovaprezzi < Spree::Feeds::Base
-      include Spree::Core::Engine.routes.url_helpers
 
       def perform
+        tags = SpreeFeeds::Config.trovaprezzi_tags
         file_path = "#{@base_path}/trovaprezzi.xml"
         file = File.new("#{file_path}.tmp", "w")
-        xml = Builder::XmlMarkup.new(target: file)
 
+        xml = Builder::XmlMarkup.new(target: file)
         xml.instruct! :xml, version: "1.0"
         xml.Products do
           @products.each do |product|
             variants = product.variants.many? ? product.variants : [product.master]
             variants.each do |variant|
+              helper = TrovaprezziFeedHelper.new(variant, @root_url)
               xml.Offer do
-                xml.Name product.name
-                xml.Brand product.brand_name if product.respond_to? :brand_name
-                xml.tag!("Description") { xml.cdata!(product.description) }
-                xml.Price variant.price
-                xml.Code variant.sku
-                xml.Link product_url(product, host: @root_url)
-                xml.Stock variant.total_on_hand
-                categories = []
-                product.taxons.each do |t|
-                  categories << t.name.downcase
-                end
-                xml.Categories categories.join('; ')
-                variant.images.each_with_index do |img, i|
-                  xml.tag!(
-                    "Image" + ( i != 0 ? (i + 1).to_s : '' ),
-                    URI.join(@root_url, img.attachment.url(:original))
-                  )
+                tags.each do |t|
+                  if t == 'image'
+                    variant.images.each_with_index do |img, i|
+                      xml.tag!(
+                        "Image" + ( i != 0 ? (i + 1).to_s : '' ),
+                        URI.join(@root_url, img.attachment.url(:original))
+                      )
+                    end
+                  elsif t == 'description'
+                    xml.tag!("Description") { xml.cdata!(product.description) }
+                  else
+                    if helper.respond_to?(t) && value = helper.send(t)
+                      xml.tag!(t.capitalize, strip_tags(value.to_s))
+                    end
+                  end
                 end
               end
             end
