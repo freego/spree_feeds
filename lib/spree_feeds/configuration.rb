@@ -18,5 +18,15 @@ module SpreeFeeds
       'availability',
       'price'
     ]
+    preference :trovaprezzi_tags, :array, default: [
+      'name',
+      'description',
+      'price',
+      'code',
+      'link',
+      'stock',
+      'categories',
+      'image'
+    ]
   end
 end
