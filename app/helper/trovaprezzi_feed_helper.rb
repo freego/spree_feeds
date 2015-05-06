@@ -1,5 +1,6 @@
 class TrovaprezziFeedHelper
   include Spree::Core::Engine.routes.url_helpers
+  include ActionView::Helpers::SanitizeHelper
 
   def initialize(variant, host)
     @variant = variant
@@ -16,7 +17,7 @@ class TrovaprezziFeedHelper
   end
 
   def description
-    @product.description
+    strip_tags(@product.description)
   end
 
   def link
