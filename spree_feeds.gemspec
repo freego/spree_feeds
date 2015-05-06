@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_feeds'
-  s.version     = '2.3.0'
+  s.version     = '2.2.0'
   s.summary     = 'Provide feed for google shopping'
   s.description = s.summary
   s.required_ruby_version = '>= 2.0.0'
