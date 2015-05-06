@@ -24,7 +24,13 @@ class TrovaprezziFeedHelper
   end
 
   def stock
-    'Disponibile'
+    if @variant.total_on_hand > 1
+      'Disponibile'
+    elsif @variant.total_on_hand == 1
+      'Disponibilità limitata'
+    else
+      'Non disponibile'
+    end
   end
 
   def price
