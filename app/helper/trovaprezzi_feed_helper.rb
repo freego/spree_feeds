@@ -39,11 +39,9 @@ class TrovaprezziFeedHelper
   end
 
   def categories
-    categories = []
-    @product.taxons.each do |t|
-      categories << t.name.downcase
+    if taxon = @product.taxons.first
+      taxon.pretty_name.downcase.gsub("->", ",")
     end
-    categories.join('; ')
   end
 end
 
