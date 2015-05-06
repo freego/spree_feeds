@@ -32,8 +32,6 @@ module Spree
                         URI.join(@root_url, img.attachment.url(:original))
                       )
                     end
-                  elsif t == 'description'
-                    xml.tag!("Description") { xml.cdata!(product.description) }
                   else
                     if helper.respond_to?(t) && value = helper.send(t)
                       xml.tag!(t.capitalize, strip_tags(value.to_s))
