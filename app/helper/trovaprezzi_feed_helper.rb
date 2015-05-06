@@ -24,7 +24,7 @@ class TrovaprezziFeedHelper
   end
 
   def stock
-    @variant.total_on_hand
+    'Disponibile'
   end
 
   def price
