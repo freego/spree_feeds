@@ -1,11 +1,11 @@
 class FeedsWorker
   include Sidekiq::Worker
 
-  def perform(klass, repeat = true)
+  def perform(klass, repeat_every_hours: 12)
     klass.to_s.constantize.new.perform
 
-    if repeat
-      self.class.perform_in(SpreeFeeds::Config.run_every_hours.hours, klass, repeat)
+    if repeat_every_hours > 0
+      self.class.perform_in(repeat_every_hours.hours, klass, repeat_every_hours)
     end
   end
 end

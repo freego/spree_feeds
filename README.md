@@ -31,13 +31,13 @@ SpreeFeeds::Google.new.perform
 A `sidekiq` worker is also included:
 
 ```ruby
-FeedsWorker.perform_async('SpreeFeeds::Google')
+FeedsWorker.perform_async('SpreeFeeds::Google', repeat_every_hours: 24)
 ```
 
 See `SpreeFeeds::Configuration` for available configurations:
 
 ```ruby
-SpreeFeeds::Config.run_every_hours = 24
+SpreeFeeds::Config.base_url = 'https://mysite.com/'
 ```
 
 Testing

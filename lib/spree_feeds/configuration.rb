@@ -1,6 +1,5 @@
 module SpreeFeeds
   class Configuration < Spree::Preferences::Configuration
-    preference :run_every_hours, :integer, default: 12
     preference :files_path, :string, default: 'public/spree/feeds/'
     preference :base_url, :string, default: 'http://localhost:3000'
 
