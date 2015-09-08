@@ -17,7 +17,7 @@
 # - price
 # - item_group_id (only if the product has variants)
 
-helper = GoogleShoppingFeedHelper.new(product, variant, root_url)
+helper = SpreeFeeds::Helpers::GoogleShoppingFeed.new(product, variant, root_url)
 tags = SpreeFeeds::Config.google_shopping_tags
 tags_with_cdata = SpreeFeeds::Config.google_shopping_tags_with_cdata
 
@@ -29,7 +29,7 @@ xml.item do
       else
         xml.g :image_link, image_url('noimage/large.png')
       end
-    elsif t == 'additional_image_link' 
+    elsif t == 'additional_image_link'
       variant.images.drop(1).each do |img|
         xml.g :additional_image_link, URI.join(request.url, img.attachment.url(:original))
       end

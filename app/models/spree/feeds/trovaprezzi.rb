@@ -22,7 +22,7 @@ module Spree
           @products.each do |product|
             variants = product.variants.many? ? product.variants : [product.master]
             variants.each do |variant|
-              helper = TrovaprezziFeedHelper.new(variant, @root_url)
+              helper = SpreeFeeds::Helpers::TrovaprezziFeed.new(variant, @root_url)
               xml.Offer do
                 tags.each do |t|
                   if t == 'image'

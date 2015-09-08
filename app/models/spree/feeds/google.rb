@@ -37,7 +37,7 @@ module Spree
             @products.find_each(batch_size: 200) do |product|
               variants = product.variants.many? ? product.variants : [product.master]
               variants.each do |variant|
-                helper = GoogleShoppingFeedHelper.new(variant, @root_url)
+                helper = SpreeFeeds::Helpers::GoogleShoppingFeed.new(variant, @root_url)
                 xml.item do
                   tags.each do |t|
                     t = t.to_sym
