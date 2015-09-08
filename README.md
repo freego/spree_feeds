@@ -1,7 +1,9 @@
 SpreeFeeds
 ==========
 
-Provide feeds for Google Shopping.
+Export feeds from Spree to:
+- Google Shopping
+- Trovaprezzi
 
 Installation
 ------------
@@ -17,6 +19,25 @@ Bundle your dependencies and run the installation generator:
 ```shell
 bundle
 bundle exec rails g spree_feeds:install
+```
+
+Usage
+-----
+
+```ruby
+SpreeFeeds::Google.new.perform
+```
+
+A `sidekiq` worker is also included:
+
+```ruby
+FeedsWorker.perform_async('SpreeFeeds::Google')
+```
+
+See `SpreeFeeds::Configuration` for available configurations:
+
+```ruby
+SpreeFeeds::Config.run_every_hours = 24
 ```
 
 Testing
