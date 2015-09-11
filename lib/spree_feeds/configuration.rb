@@ -29,5 +29,18 @@ module SpreeFeeds
       'categories',
       'image'
     ]
+
+    preference :leguide_tags, :array, default: [
+      'category',
+      'offer_id',
+      'name',
+      'description',
+      'price',
+      'product_url',
+      'image_url',
+      'shipping',
+      'availability',
+      'guarantee'
+    ]
   end
 end

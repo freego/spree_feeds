@@ -4,6 +4,7 @@ SpreeFeeds
 Export feeds from Spree to:
 - Google Shopping
 - Trovaprezzi
+- Le Guide (pagineprezzi)
 
 Installation
 ------------
