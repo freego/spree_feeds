@@ -32,7 +32,7 @@ SpreeFeeds::Google.new.perform
 A `sidekiq` worker is also included:
 
 ```ruby
-FeedsWorker.perform_async('SpreeFeeds::Google', repeat_every_hours: 24)
+FeedsWorker.perform_async('SpreeFeeds::Google', 24)
 ```
 
 See `SpreeFeeds::Configuration` for available configurations:
