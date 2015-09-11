@@ -1,5 +1,5 @@
 class FeedsWorker
-  include Sidekiq::Worker
+  include Sidekiq::Worker if defined? Sidekiq
 
   def perform(klass, repeat_every_hours: 12)
     klass.to_s.constantize.new.perform
