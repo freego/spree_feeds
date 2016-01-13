@@ -42,5 +42,17 @@ module SpreeFeeds
       'availability',
       'guarantee'
     ]
+
+    preference :shopalike_tags, :array, default: [
+      'SKU',
+      'NAME',
+      'TOP CATEGORY',
+      'CATEGORY',
+      'DESCRIPTION',
+      'PRICE',
+      'IMAGE URL',
+      'DEEPLINK URL',
+      'CURRENCY'
+    ]
   end
 end
