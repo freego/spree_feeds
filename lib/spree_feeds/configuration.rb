@@ -54,5 +54,22 @@ module SpreeFeeds
       'DEEPLINK URL',
       'CURRENCY'
     ]
+
+    preference :twenga_tags, :array, default: [
+      'merchant_ref',
+      'merchant_id',
+      'upc_ean',
+      'product_url',
+      'image_url',
+      'designation',
+      'description',
+      'brand',
+      'category',
+      'price',
+      'unit_price',
+      'availability',
+      'condition',
+      'energy_rating'
+    ]
   end
 end
