@@ -33,7 +33,7 @@ module SpreeFeeds
                   end
                 else
                   if helper.respond_to?(t) && value = helper.send(t)
-                    xml.tag!(t.capitalize, strip_tags(value.to_s))
+                    xml.tag!(t.camelize, strip_tags(value.to_s))
                   end
                 end
               end
