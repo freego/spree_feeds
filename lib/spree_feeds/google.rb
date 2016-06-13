@@ -38,21 +38,12 @@ module SpreeFeeds
             variants.each do |variant|
               helper = Helpers::GoogleShoppingFeed.new(variant, @root_url)
               xml.item do
-                tags.each do |t|
-                  t = t.to_sym
-                  if t == :image
-                    if variant.images.size > 0
-                      xml.g :image_link, URI.join(@root_url, variant.images.first.attachment.url(:original))
+                tags.map(&:to_sym).each do |t|
+                  if helper.respond_to?(t) && value = helper.send(t)
+                    if value.respond_to?(:each)
+                      value.each { |v| xml.g t, v.to_s }
                     else
-                      xml.g :image_link, image_url('noimage/large.png')
-                    end
-                  elsif t == :additional_image_link
-                    variant.images.drop(1).each do |img|
-                      xml.g :additional_image_link, URI.join(@root_url, img.attachment.url(:original))
-                    end
-                  else
-                    if helper.respond_to?(t) && value = helper.send(t)
-                      xml.g t, strip_tags(value.to_s)
+                      xml.g t, value.to_s
                     end
                   end
                 end
