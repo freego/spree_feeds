@@ -1,14 +1,6 @@
 module SpreeFeeds
   module Helpers
-    class GoogleShoppingFeed
-      include Spree::Core::Engine.routes.url_helpers
-      include ActionView::Helpers::SanitizeHelper
-
-      def initialize(variant, host)
-        @variant = variant
-        @product = variant.product
-        @host = host
-      end
+    class GoogleShoppingFeed < Base
 
       def id
         "P#{@product.id}/V#{@variant.id}"
