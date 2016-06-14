@@ -40,8 +40,10 @@ module SpreeFeeds
               xml.item do
                 tags.map(&:to_sym).each do |t|
                   if helper.respond_to?(t) && value = helper.send(t)
-                    if value.respond_to?(:each)
+                    if value.is_a?(Array)
                       value.each { |v| xml.g t, v.to_s }
+                    elsif value.is_a?(Hash)
+                      xml.tag!('g:shipping') { value.each { |k, v| xml.g k, v } }
                     else
                       xml.g t, value.to_s
                     end
