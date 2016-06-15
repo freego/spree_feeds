@@ -7,6 +7,7 @@ Export feeds from Spree to:
 - Le Guide (pagineprezzi)
 - ShopAlike
 - Twenga
+- Eprice
 
 Installation
 ------------
