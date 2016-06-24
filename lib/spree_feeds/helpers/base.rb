@@ -10,6 +10,10 @@ module SpreeFeeds
         @host = host
       end
 
+      def description
+        strip_tags(@product.description).gsub("\n", ' ').gsub("\r", '').squeeze(' ').strip
+      end
+
     end
   end
 end

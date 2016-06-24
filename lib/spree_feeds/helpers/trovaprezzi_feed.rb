@@ -10,10 +10,6 @@ module SpreeFeeds
         @product.name
       end
 
-      def description
-        strip_tags(@product.description)
-      end
-
       def link
         product_url(@product, host: @host)
       end

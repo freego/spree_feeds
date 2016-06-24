@@ -10,10 +10,6 @@ module SpreeFeeds
         @product.respond_to?(:title) ? @product.title : @product.name
       end
 
-      def description
-        strip_tags(@product.description)
-      end
-
       def google_product_category
         if map = @product.taxons.first.try(:taxon_map_google)
           map.product_type

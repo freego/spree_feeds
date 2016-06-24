@@ -43,10 +43,7 @@ module SpreeFeeds
       end
 
       def product_description
-        strip_tags(@product.description).gsub("\n", ' ').
-                                         gsub("\r", '').
-                                         squeeze(' ').
-                                         strip
+        description
       end
 
       def recommended_browse_nodes

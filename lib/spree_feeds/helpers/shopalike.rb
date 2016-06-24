@@ -22,10 +22,6 @@ module SpreeFeeds
         end
       end
 
-      def description
-        strip_tags(@product.description)
-      end
-
       def price
         @product.price.to_s
       end
