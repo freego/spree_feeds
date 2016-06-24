@@ -1,7 +1,7 @@
 require 'csv'
 
 module SpreeFeeds
-  class Twenga < Base
+  class Twenga < SpreeFeeds::Base
 
     def perform
       tags = SpreeFeeds::Config.twenga_tags

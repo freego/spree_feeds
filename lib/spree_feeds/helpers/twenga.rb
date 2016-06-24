@@ -1,6 +1,6 @@
 module SpreeFeeds
   module Helpers
-    class Twenga < Base
+    class Twenga < SpreeFeeds::Helpers::Base
 
       def merchant_ref
         "P#{@product.id}"

@@ -1,7 +1,7 @@
 require 'csv'
 
 module SpreeFeeds
-  class EpriceProduct < Base
+  class EpriceProduct < SpreeFeeds::Base
 
     def perform
       tags = SpreeFeeds::Config.eprice_product_tags

@@ -8,7 +8,7 @@
 # See doc/RequisitiTecnici_TrovaPrezziNetwork.pdf for more details
 
 module SpreeFeeds
-  class Trovaprezzi < Base
+  class Trovaprezzi < SpreeFeeds::Base
 
     def perform
       tags = SpreeFeeds::Config.trovaprezzi_tags

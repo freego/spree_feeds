@@ -1,6 +1,6 @@
 module SpreeFeeds
   module Helpers
-    class GoogleShoppingFeed < Base
+    class GoogleShoppingFeed < SpreeFeeds::Helpers::Base
 
       def id
         "P#{@product.id}/V#{@variant.id}"

@@ -1,6 +1,6 @@
 module SpreeFeeds
   module Helpers
-    class Shopalike < Base
+    class Shopalike < SpreeFeeds::Helpers::Base
 
       def sku
         @product.id

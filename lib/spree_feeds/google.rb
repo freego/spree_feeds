@@ -18,7 +18,7 @@
 # - item_group_id (only if the product has variants)
 
 module SpreeFeeds
-  class Google < Base
+  class Google < SpreeFeeds::Base
 
     def perform
       tags = Config.google_shopping_tags

@@ -1,6 +1,6 @@
 module SpreeFeeds
   module Helpers
-    class TrovaprezziFeed < Base
+    class TrovaprezziFeed < SpreeFeeds::Helpers::Base
 
       def code
         @variant.sku

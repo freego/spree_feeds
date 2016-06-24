@@ -1,6 +1,6 @@
 module SpreeFeeds
   module Helpers
-    class Leguide < Base
+    class Leguide < SpreeFeeds::Helpers::Base
 
       def category
         if taxon = @product.taxons.first

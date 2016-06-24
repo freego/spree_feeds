@@ -1,6 +1,6 @@
 module SpreeFeeds
   module Helpers
-    class EpriceProduct < Base
+    class EpriceProduct < SpreeFeeds::Helpers::Base
 
       def external_product_id_type
         'EAN'

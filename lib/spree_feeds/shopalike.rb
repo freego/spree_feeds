@@ -1,7 +1,7 @@
 require 'csv'
 
 module SpreeFeeds
-  class Shopalike < Base
+  class Shopalike < SpreeFeeds::Base
 
     def perform
       tags = SpreeFeeds::Config.shopalike_tags

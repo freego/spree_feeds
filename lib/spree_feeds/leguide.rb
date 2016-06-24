@@ -9,7 +9,7 @@
 require 'csv'
 
 module SpreeFeeds
-  class Leguide < Base
+  class Leguide < SpreeFeeds::Base
 
     def perform
       tags = SpreeFeeds::Config.leguide_tags
