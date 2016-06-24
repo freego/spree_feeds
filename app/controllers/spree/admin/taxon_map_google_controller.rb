@@ -10,7 +10,7 @@ module Spree
         params[:tax_id].each do |k, v|
           taxon_map = Spree::TaxonMapGoogle.find_or_initialize_by(taxon_id: k)
           taxon_map.product_type = v
-          taxon_map.priority = params[:priority][k].to_i || 0
+          # taxon_map.priority = params[:priority][k].to_i || 0
           taxon_map.save
         end
 

@@ -1,14 +1,6 @@
 module SpreeFeeds
   module Helpers
-    class GoogleShoppingFeed
-      include Spree::Core::Engine.routes.url_helpers
-      include ActionView::Helpers::SanitizeHelper
-
-      def initialize(variant, host)
-        @variant = variant
-        @product = variant.product
-        @host = host
-      end
+    class GoogleShoppingFeed < Base
 
       def id
         "P#{@product.id}/V#{@variant.id}"
@@ -40,7 +32,13 @@ module SpreeFeeds
 
       def image_link
         if image = @variant.images.first
-          URI.join(@host, @variant.images.first.attachment.url(:original))
+          URI.join(@host, image.attachment.url(:original))
+        end
+      end
+
+      def additional_image_link
+        @variant.images.drop(1).map do |image|
+          URI.join(@host, image.attachment.url(:original))
         end
       end
 
