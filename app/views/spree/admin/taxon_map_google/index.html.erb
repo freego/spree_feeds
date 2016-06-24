@@ -5,15 +5,15 @@
 
 <table class="index">
   <colgroup>
-    <col style="width: 45%" />
-    <col style="width: 45%" />
-    <col style="width: 10%" />
+    <col style="width: 50%" />
+    <col style="width: 50%" />
+    <!-- <col style="width: 10%" /> -->
   </colgroup>
   <thead>
     <tr data-hook="tax_header">
       <th><%= Spree.t(:taxon) %></th>
       <th><%= Spree.t(:google_taxon) %></th>
-      <th><%= Spree.t(:priority) %></th>
+      <!-- <th><%= Spree.t(:priority) %></th> -->
     </tr>
   </thead>
   <tbody>
@@ -26,9 +26,9 @@
           <td class="align-center">
             <%= text_field(:tax_id, taxon.id, value: taxon.taxon_map_google.try(:product_type), class: 'category') %>
           </td>
-          <td class="align-center">
+          <!-- <td class="align-center">
             <%= text_field(:priority, taxon.id, value: taxon.taxon_map_google.try(:priority), class: 'priority') %>
-          </td>
+          </td> -->
         </tr>
       <% end %>
       <tr>

@@ -54,5 +54,39 @@ module SpreeFeeds
       'DEEPLINK URL',
       'CURRENCY'
     ]
+
+    preference :twenga_tags, :array, default: [
+      'merchant_ref',
+      'merchant_id',
+      'upc_ean',
+      'product_url',
+      'image_url',
+      'designation',
+      'description',
+      'brand',
+      'category',
+      'price',
+      'unit_price',
+      'availability',
+      'condition',
+      'energy_rating'
+    ]
+
+    preference :eprice_product_tags, :array, default: [
+      'external_product_id_type',
+      'external_product_id',
+      'part_number',
+      'manufacturer',
+      'item_name',
+      'item_sku',
+      'main_image_url',
+      'other_image_url1',
+      'other_image_url2',
+      'product_description',
+      'recommended_browse_nodes',
+      'VAT',
+      'website_shipping_weight',
+      'website_shipping_weight_unit_of_measure'
+    ]
   end
 end
