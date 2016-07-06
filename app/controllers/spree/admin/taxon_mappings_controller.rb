@@ -12,7 +12,7 @@ module Spree
           taxon_map.update_attributes(params[:mappings].require(taxon_id).permit!)
         end
 
-        redirect_to admin_taxon_mappings_path
+        redirect_to admin_taxon_mappings_path, notice: 'OK'
       end
 
     end

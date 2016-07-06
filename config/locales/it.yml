@@ -1,4 +1,3 @@
 it:
   spree:
-    taxon_mapping: Mappatura Taxon Feed
-    google_taxon: Taxon Google
+    taxon_mapping: Mappatura Taxon per i Feed

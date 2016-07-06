@@ -4,29 +4,50 @@
 
 <table class="index">
   <colgroup>
-    <col style="width: 50%" />
-    <col style="width: 50%" />
+    <col style="width: 15%" />
+    <col style="width: 85%" />
   </colgroup>
   <thead>
     <tr data-hook="tax_header">
-      <th><%= Spree.t(:taxon) %></th>
-      <th><%= Spree.t(:google_taxon) %></th>
+      <th></th>
+      <th>
+        <%= Spree.t(:taxon) %>
+      </th>
     </tr>
   </thead>
   <tbody>
     <%= form_tag admin_taxon_mappings_path, method: :post do %>
       <% @taxons.each do |taxon| %>
-        <tr class="<%= cycle('odd', 'even')%>">
+        <% css_class = cycle('odd', 'even') %>
+        <tr class="<%= css_class %>">
           <td class="align-left">
-            <%= taxon.pretty_name %>
+            <strong>
+              Spree
+            </strong>
           </td>
-          <td class="align-center">
-            <%= text_field_tag "mappings[#{taxon.id}][google_taxon]", taxon.taxon_mapping.try(:google_taxon), class: 'category' %>
+          <td class="align-left">
+            <strong>
+              <%= taxon.pretty_name %>
+            </strong>
           </td>
         </tr>
+
+        <% SpreeFeeds::Config.mappings.each do |mapping_name| %>
+          <tr class="<%= css_class %>">
+            <td class="align-left">
+              <%= mapping_name.capitalize %>
+            </td>
+            <td class="align-center">
+              <%= text_field_tag "mappings[#{taxon.id}][#{mapping_name}_taxon]",
+                                 taxon.taxon_mapping.try("#{mapping_name}_taxon"),
+                                 class: 'category' %>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
+
       <tr>
-        <td colspan="3">
+        <td colspan="2">
           <div class="form-buttons filter-actions actions" data-hook="buttons">
             <%= button Spree.t('actions.update'), 'icon-refresh' %>
           </div>
