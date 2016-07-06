@@ -1,2 +1,2 @@
 <!-- insert_bottom "[data-hook='admin_configurations_sidebar_menu']" -->
-<%= configurations_sidebar_menu_item Spree.t(:google_taxon_map), admin_taxon_map_google_index_path %>
+<%= configurations_sidebar_menu_item Spree.t(:taxon_mapping), admin_taxon_mappings_path %>

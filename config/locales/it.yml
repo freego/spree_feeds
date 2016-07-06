@@ -1,6 +1,4 @@
 it:
   spree:
-    google_taxon_map: Mapping Taxon Google
-    priority: Priorità
+    taxon_mapping: Mappatura Taxon Feed
     google_taxon: Taxon Google
-

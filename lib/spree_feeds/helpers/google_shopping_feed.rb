@@ -15,8 +15,8 @@ module SpreeFeeds
       end
 
       def google_product_category
-        if map = @product.taxons.first.try(:taxon_map_google)
-          map.product_type
+        if mapping = @product.taxons.first.try(:taxon_mapping)
+          mapping.google_taxon
         end
       end
 
