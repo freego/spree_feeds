@@ -7,6 +7,7 @@ module SpreeFeeds
       end
 
       def external_product_id
+        # need custom logic
       end
 
       def part_number
@@ -47,6 +48,9 @@ module SpreeFeeds
       end
 
       def recommended_browse_nodes
+        if mapping = @product.taxons.first.try(:taxon_mapping)
+          mapping.eprice_taxon
+        end
       end
 
       def VAT

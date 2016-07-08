@@ -2,6 +2,7 @@ module SpreeFeeds
   class Configuration < Spree::Preferences::Configuration
     preference :files_path, :string, default: 'public/spree/feeds/'
     preference :base_url, :string, default: 'http://localhost:3000'
+    preference :mappings, :array, default: ['google']
 
     preference :google_shopping_rss_title, :string, default: 'Title goes here'
     preference :google_shopping_rss_description, :string, default: 'This is the description'
@@ -87,6 +88,17 @@ module SpreeFeeds
       'VAT',
       'website_shipping_weight',
       'website_shipping_weight_unit_of_measure'
+    ]
+
+    preference :eprice_offer_tags, :array, default: [
+      'sku',
+      'product_id',
+      'product_id_type',
+      'price',
+      'quantity',
+      'state',
+      'fulfillment_latency',
+      'logistic_class'
     ]
   end
 end

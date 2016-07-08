@@ -1,5 +1,5 @@
 module Spree
   Taxon.class_eval do
-    has_one :taxon_map_google, dependent: :destroy
+    has_one :taxon_mapping, dependent: :destroy
   end
 end

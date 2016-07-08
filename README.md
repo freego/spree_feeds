@@ -2,12 +2,12 @@ SpreeFeeds
 ==========
 
 Export feeds from Spree to:
-- Google Shopping
+- Google (with taxon mapping)
 - Trovaprezzi
-- Le Guide (pagineprezzi)
+- Le Guide (aka pagineprezzi)
 - ShopAlike
 - Twenga
-- Eprice
+- Eprice (with taxon mapping)
 
 Installation
 ------------
@@ -42,6 +42,7 @@ See `SpreeFeeds::Configuration` for available configurations:
 
 ```ruby
 SpreeFeeds::Config.base_url = 'https://mysite.com/'
+SpreeFeeds::Config.mappings = ['google', 'eprice']
 ```
 
 Testing
