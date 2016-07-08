@@ -1,13 +1,14 @@
 SpreeFeeds
 ==========
 
-Export feeds from Spree to:
+Export products feeds from Spree to:
 - Google (with taxon mapping)
 - Trovaprezzi
 - Le Guide (aka pagineprezzi)
 - ShopAlike
 - Twenga
 - Eprice (with taxon mapping)
+- Kelkoo
 
 Installation
 ------------

@@ -100,5 +100,19 @@ module SpreeFeeds
       'fulfillment_latency',
       'logistic_class'
     ]
+
+    preference :kelkoo_tags, :array, default: [
+      'offer-id',
+      'title',
+      'product-url',
+      'price',
+      'description',
+      'image-url',
+      'image-url-2',
+      'image-url-3',
+      'image-url-4',
+      'merchant-category',
+      'availability'
+    ]
   end
 end
