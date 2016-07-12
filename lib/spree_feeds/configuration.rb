@@ -114,5 +114,20 @@ module SpreeFeeds
       'merchant-category',
       'availability'
     ]
+
+    preference :facebook_tags, :array, default: [
+      'id',
+      'availability',
+      'condition',
+      'description',
+      'image_link',
+      'link',
+      'title',
+      'price',
+      'mpn',
+      'additional_image_link',
+      'item_group_id',
+      'google_product_category'
+    ]
   end
 end

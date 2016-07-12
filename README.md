@@ -3,6 +3,7 @@ SpreeFeeds
 
 Export products feeds from Spree to:
 - Google (with taxon mapping)
+- Facebook
 - Trovaprezzi
 - Le Guide (aka pagineprezzi)
 - ShopAlike
