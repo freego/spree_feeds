@@ -10,6 +10,7 @@ Export products feeds from Spree to:
 - Twenga
 - Eprice (with taxon mapping)
 - Kelkoo
+- Cvetta (search engine)
 
 Installation
 ------------

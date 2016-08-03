@@ -129,5 +129,14 @@ module SpreeFeeds
       'item_group_id',
       'google_product_category'
     ]
+
+    preference :cvetta_tags, :array, default: [
+      'sku',
+      'name',
+      'image',
+      'url_key',
+      'categories',
+      'price'
+    ]
   end
 end
