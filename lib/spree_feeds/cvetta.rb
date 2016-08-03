@@ -16,10 +16,9 @@ module SpreeFeeds
             xml.doc do
               tags.each do |t|
                 if t == 'categories'
-                  product.taxons.each do |root|
-                    root.self_and_descendants.each do |taxon|
-                      xml.tag!(:field, name: t) { xml.cdata!(taxon.name) }
-                    end
+                  product.taxons.flat_map(&:self_and_ancestors).uniq.each do |taxon|
+                    next if taxon.root?
+                    xml.tag!(:field, name: t) { xml.cdata!(taxon.name) }
                   end
                 else
                   if helper.respond_to?(t) && value = helper.send(t)
