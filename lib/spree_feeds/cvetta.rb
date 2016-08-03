@@ -34,6 +34,7 @@ module SpreeFeeds
 
       file.close
       File.rename("#{file_path}.tmp", file_path)
+      file_path
     end
 
   end
